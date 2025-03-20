@@ -33,3 +33,22 @@ exports.getTrainingsById = async (req, res) => {
     }
 };
 
+
+exports.updateTraining  = async (req, res) => {
+    try {
+        const training = await Training.findByIdAndUpadte(req.params.id, req.body, {
+            new: true,
+            runValidators: true,
+        });
+        if (!training) {
+            return res.status(404).json({ error: 'Training not found'});
+        }
+        res.status(200).json(training);
+    }   catch (err) {
+        res.status(400).json({ error: err.message});
+    
+    }
+};
+
+
+
