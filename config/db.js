@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const conncetDB = async () => {
+const connectDB = async () => {
     try{
         await mongoose.connect('mongodb://localhost:27017/karate-training',
 {
@@ -9,11 +9,11 @@ const conncetDB = async () => {
 
 
     });
-    console.log('MongoDB conneceted');
+    console.log('MongoDB connected');
     } catch (err) {
-        console.error('MongoDB conncection error:', err);
+        console.error('MongoDB connection error:', err);
         process.exit(1);
     }
 };
 
-module.exports = conncetDB;
+module.exports = connectDB;
