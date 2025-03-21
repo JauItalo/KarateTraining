@@ -4,7 +4,7 @@ express = require ('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const connectDB = require('../config/db');
-const trainingRoutes = require ('../routes/trainingRoutes');
+const trainingRoutes = require ('./trainingRoutes');
 
 
 const app = express();
