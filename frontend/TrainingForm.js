@@ -23,8 +23,38 @@ const TrainingForm = () => {
         }   catch (err) {
             console.error(err);
         }
-    }
+    };
 
+    return(
+        <form onSubmit={handleSubmit}>
+        <select name="type" value={formData.type} onChange={handleChange}required>
+            <option value="">Select Type</option>
+            <option value="Kihon">Kihon</option>
+            <option value="Kata">Kata</option>
+            <option value="Kumite">Kumite</option>
 
-    
-}
+        </select>
+
+        <input
+            type="number"
+            name="duration"
+            placeholder="Duration (minutes)"
+            value={formData.duration}
+            onChange={handleChange}
+            required
+        />
+
+        <textarea
+            name="notes"
+            placeholder="Notes"
+            value={formData.notes}
+            onChange={handleChange}
+        />
+        
+        <button type="submit">Add Training</button>
+
+        </form>
+        );
+};
+
+export default TrainingForm;
