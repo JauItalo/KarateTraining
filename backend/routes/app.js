@@ -1,13 +1,14 @@
-
-
-express = require ('express');
+const express = require ('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const connectDB = require('../config/db');
 const trainingRoutes = require ('./trainingRoutes');
 
-
 const app = express();
+app.use (express.json());
+app.get('/', (req, res) => {
+    res.send('API do karate Training funfando!');
+});
 
 
 connectDB()

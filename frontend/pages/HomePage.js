@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState } from 'react';
 import axios from 'axios';
 import TrainingForm from '../components/TrainingForm';
+import Progress from '../graficos-progresso/Progress';
 
 
 const HomePage = () => {
@@ -23,6 +24,7 @@ const HomePage = () => {
             <div>
                 <h1>Karate Training App</h1>
                 <TrainingForm />
+                <Progress data={trainings} />
                 <ul>
                     {trainings.map((training) => (
                         <li key={training._id}>
