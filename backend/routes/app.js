@@ -1,17 +1,14 @@
-const express = require ('express');
-const bodyParser = require('body-parser');
+// app.js
+const express = require('express');
 const cors = require('cors');
-const connectDB = require('../config/db');
-const trainingRoutes = require ('./trainingRoutes');
+const bodyParser = require('body-parser');
+const connectDB = require('./config/db');
+const trainingRoutes = require('./routes/trainingRoutes');
 
 const app = express();
-app.use (express.json());
-app.get('/', (req, res) => {
-    res.send('API do karate Training funfando!');
-});
 
 
-connectDB()
+connectDB();
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -20,5 +17,8 @@ app.use(bodyParser.json());
 app.use('/api/trainings', trainingRoutes);
 
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log('Server running on port ${PORT}'));
+app.get('/', (req, res) => {
+  res.send('API Karate Training funcionando!');
+});
+
+module.exports = app;
