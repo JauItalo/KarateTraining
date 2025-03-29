@@ -3,7 +3,7 @@ const Training = require('../models/training');
 
 exports.createTraining = async (req, res) => {
     try{
-        const newTraining = new Training(req, body);
+        const newTraining = new Training(req.body);
         await newTraining.save();
         res.status(201).json(newTraining);
     }   catch (err) {
@@ -36,7 +36,7 @@ exports.getTrainingsById = async (req, res) => {
 
 exports.updateTraining  = async (req, res) => {
     try {
-        const training = await Training.findByIdAndUpadte(req.params.id, req.body, {
+        const training = await Training.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true,
         });
